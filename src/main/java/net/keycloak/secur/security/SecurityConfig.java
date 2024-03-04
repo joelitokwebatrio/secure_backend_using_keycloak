@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(AbstractHttpConfigurer::disable)
-                // .authorizeHttpRequests(ar->ar.requestMatchers("/api/customers/**").hasAuthority("USER"))
+                 .authorizeHttpRequests(ar->ar.requestMatchers("/api/customers/**").hasAuthority("USER"))
                 .authorizeHttpRequests(ar -> ar.anyRequest().authenticated())
                 //.oauth2ResourceServer(ors->ors.jwt(Customizer.withDefaults()))
                 .oauth2ResourceServer(ors -> ors.jwt(jwt->jwt.jwtAuthenticationConverter(jwtAuthConverter)))
